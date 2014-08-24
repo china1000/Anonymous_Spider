@@ -15,9 +15,9 @@ Phantomjs使用说明：http://www.tuicool.com/articles/nieEVv
 1. 请直接将phantomjs程序拷贝到/bin/目录下。
 2.  安装apache：yum install apache.
 3.  准备目录： 
-#mkdir /search
-#mkdir /search/usr
-#mkdir /search/usr/httpd
+mkdir /search
+mkdir /search/usr
+mkdir /search/usr/httpd
 4. 安装目录：
 		 #useradd test –G root 
      #visudo 之后添加如下代码（可以不一定需要，但是建议这么做）：
