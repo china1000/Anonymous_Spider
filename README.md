@@ -3,7 +3,7 @@ Anonymous_Spider
 
 This project is a anonymous spider which mimics user action, by creating fake referer, fake user-agent,fake cookies. And the most important thing is that this spider can not be detected by php, js and ajax. It's so great and easy to use!!
 
-该项目基于phantomjs开发了一个匿名的爬虫，该爬虫修改了 referer, User-Agent, http-header，把自己伪装成客户的浏览行为。并且该爬虫无法被js/php/ajax识别。
+该项目基于phantomjs开发了一个匿名的爬虫，该爬虫修改了 referer, User-Agent, http-header，把自己伪装成客户的浏览行为。并且该爬虫无法被js/php/ajax识别。注意该爬虫可以彻底攻破客户网站基于js的第三方访问量统计，天哪。。。
 
 第1章	 匿名爬虫
 1.1phantomjs简介
