@@ -21,8 +21,8 @@ mkdir /search/usr
 
 mkdir /search/usr/httpd
 4. 安装目录：
-#useradd test –G root 
-#visudo 之后添加如下代码（可以不一定需要，但是建议这么做）：
+useradd test –G root 
+visudo 之后添加如下代码（可以不一定需要，但是建议这么做）：
 		           test    ALL=(ALL)       NOPASSWD:ALL
 6. service httpd start.
 
