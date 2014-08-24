@@ -16,13 +16,16 @@ Phantomjs使用说明：http://www.tuicool.com/articles/nieEVv
 2.  安装apache：yum install apache.
 3.  准备目录： 
 mkdir /search
+
 mkdir /search/usr
+
 mkdir /search/usr/httpd
 4. 安装目录：
-		 #useradd test –G root 
-     #visudo 之后添加如下代码（可以不一定需要，但是建议这么做）：
+#useradd test –G root 
+#visudo 之后添加如下代码（可以不一定需要，但是建议这么做）：
 		           test    ALL=(ALL)       NOPASSWD:ALL
 6. service httpd start.
+
 1.1.2 注意：
 1.     修改/search/usr/httpd的目录权限：
 	    Chown test:root
@@ -31,11 +34,15 @@ mkdir /search/usr/httpd
 接收http请求并给 fake-referer.js和bad-url.sh传递相关的参数。Fake-referre.js多次执行控制和结果校检。
 Php 代码比较简单，主要是就是调用shell_exec，调用phantomjs对网页进行处理。
 
+
 1.1.3 其他的问题：
 1. 其他的问题请联系聂鹏宇。QQ:778959011， mail: spider_npy@163.com
 
+
 2. 遇到phantomjs使用问题，参考前面提到的官网和使用说明，注意官网中的issue可以提供很多的知识。
 
+
 3. phantomjs 还只是一个新的开源项目，目前存在一些bug，软件并发效率还有待提升。目前测试网页跳转qps在4以上，预期网页跳转+网页内容会低于4，截图效率会更低。
+
 
 4. phantomjs很吃内存，可能会出现内存占用太大导致机器死机。建议定时重启，建议定期kill所有的phantomjs进程。
