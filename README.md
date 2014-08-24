@@ -36,7 +36,7 @@ Php 代码比较简单，主要是就是调用shell_exec，调用phantomjs对网
 
 
 1.1.3 其他的问题：
-1. 其他的问题请联系聂鹏宇。QQ:778959011， mail: spider_npy@163.com
+1. 其他的问题请联系china1000。QQ:778959011， mail: spider_npy@163.com
 
 
 2. 遇到phantomjs使用问题，参考前面提到的官网和使用说明，注意官网中的issue可以提供很多的知识。
