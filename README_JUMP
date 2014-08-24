@@ -1,0 +1,26 @@
+This page is a README for jump.php. This interface supports crawlering dynamic url (including js and ajax pages), capturing images of url, and checks whether a url jumps.
+Request format:
+	http://101.226.200.174:8070/jump.php?url=$1&referer=$2&type=$3&adid=$4
+        $1: Encoded url
+        $2: Encoded Referer
+        $3: Type of this request.
+		1 requests for image
+		2 requests for html and need server to return html contents
+		3 checks whether this url jumps and return the origional url and final url when the server opens this url
+		4 requests for jpg and need server to return jpg file
+		5 checks whether this url jumps and whether this url is bad( can not be accessed)
+			return data_format: (url)"\t"(url after 4s loading)"\t"(true/false)
+		6 checks whether this url jumps and return url contents
+			return data_format: (url)"\t"(url after 4s loading)"\t"(true/false)
+		6 checks whether this url is bad
+        $4: Name for this url.
+
+Sample request:
+	http://101.226.200.174:8070/jump.php?url=http%3A%2F%2Fwww.sogou.com&referer=http%3A%2F%2Fwww.sogou.com%2Fsogou%3Fie%3Dutf-8%26pid%3Dsogou-clse-60a70bb05b08d6cd%26query%3Dxianhua&type=4&adid=test
+Note:
+	1. Recommended overtime: 30s
+	2. Please try to resend request when the returned jpg file size is smaller than 100 or equal to 8227.
+	3. The jpg and html file is stored at: 
+		http://101.226.200.174:8070/new_$date/$adid.jpg
+	4. Sample command to send request and receive the jpg file in linux:
+		wget "http://101.226.200.174:8070/jump.php?url=http%3A%2F%2Fwww.sogou.com&referer=http%3A%2F%2Fwww.sogou.com%2Fsogou%3Fie%3Dutf-8%26pid%3Dsogou-clse-60a70bb05b08d6cd%26query%3Dxianhua&type=4&adid=test" -O test.jpg
