@@ -29,11 +29,8 @@ var loadtimes=1;
 var cond1=0;
 //page.viewportSize = { width: 600, height: 600 };
  
-// set our custom referer [sic]
-page.settings.userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER";
 page.customHeaders = {
         "Referer" : referrer,
-        "User-Agent" : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER 1.1"
 };
 
 page.onError = function(msg, trace) {
@@ -68,37 +65,7 @@ page.onNavigationRequested = function(url, type, willNavigate, main) {
 }
 
 page.onLoadFinished = function(status){
-	// get the currentUrl
-	var currentUrl = page.evaluate(function() {
-		return document.location.href;
-	});
-	
-	// get the referrer
-	var currentReferrer = page.evaluate(function() {
-		return document.referrer;
-	});
-	
-	
-//	console.log('Loading ' + currentUrl + ' finished with status: ' + status+'. document.referrer is: '+currentReferrer);
-	// Only once do
-	if ( page.firstLoad ) {
-		page.firstLoad = false;
- 
-//		console.log('Injecting the Link.');
- 
-		// Inject and Click a Link to our target
-		page.evaluate(function (href) {
-			// Create and append the link
-			var link = document.createElement('a');
-			link.setAttribute('href', href);
-			document.body.appendChild(link);
-			
-			// Dispatch Click Event on the link
-			var evt = document.createEvent('MouseEvents');
-			evt.initMouseEvent('click', true, true, window, 1, 1, 1, 1, 1, false, false, false, false, 0, link);
-			link.dispatchEvent(evt);
-		}, targetUrl);
-	} else {
+// for fur_information and optimization, please contact 778959011
 	    if ( type ==2 || type == 3 ) {
 		window.setTimeout(function () {
 			if( cond1 == 0 ){
@@ -110,21 +77,7 @@ page.onLoadFinished = function(status){
                 		phantom.exit();
 			}
                 }, 1500);
-            }
-//		if(currentUrl!=""){
-//			address2=currentUrl.replace(re,"");
-// 			if( address2 != "" && address2 != referrer1){
-//				console.log(targetUrl+"\t"+currentUrl);
-//				if (type == 1 || type == 4){
-//					page.render(datapath+"/"+adid+".jpg");
-//				}	 
-//				else if(type == 2){
-//					console.log(page.content);
-//				}
-////        			phantom.exit();
-//			}
-//		}
-//               // phantom.exit();
+
 	};
 };
 
